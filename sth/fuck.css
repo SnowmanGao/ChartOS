@@ -1,0 +1,144 @@
+body{
+    color: #3080d0;
+    font-family: poppi;
+}
+
+@font-face {
+    font-family: digital;
+    font-weight: 200;
+    src: url('../pic/digital-7-mono.ttf');
+}
+
+@font-face {
+    font-family: poppi;
+    font-weight: 200;
+    src: url('../pic/poppi.ttf');
+}
+
+canvas {
+    transition: filter 1s;
+    transition: all 0.2s;
+    filter: blur(3px);
+}
+
+select,
+input {
+    border-radius: 8px;
+    font-size: large;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: grey;
+    padding: 2px 2px;
+    box-shadow: 1px 1px 6px 0px grey;
+}
+
+input[type="checkbox"] {
+    zoom: 120%;
+    bottom: -2px;
+    box-shadow: none;
+    margin-left: 2em;
+}
+
+input[type="range"] {
+    width: 25em;
+    box-shadow: none;
+}
+
+input[type="number"] {
+    width: 2.8em;
+    color: #3080d0;
+    text-align: center;
+    font-family: digital;
+    font-size: 1.5em;
+}
+
+
+div {
+    padding-left: 1.5em;
+}
+
+a{
+    margin-right: 1em;
+}
+
+li {
+    margin: 5px 0px 5px 0px;
+    min-height: 3em;
+}
+
+footer {
+    position: absolute;
+    bottom: 2em;
+    margin: 1em;
+}
+
+hr {
+    opacity: 0.3;
+}
+
+
+.optCtr {
+    filter: opacity(0);
+    background-image: url(../pic/background.png);
+    min-height: 50em;
+    transition: 1s;
+}
+
+.opt {
+    transition: 0.2s;
+    display: block;
+}
+
+#opt1{
+    transition: 0.3s;
+}
+
+
+.button {
+    min-width: 4em;
+    text-align: center;
+    background: rgba(40, 44, 52, .05);
+    border: 1px solid transparent;
+    border-radius: 6px;
+    color: #3080d0;
+    text-decoration: none !important;
+    display: inline-block;
+    font-size: .9rem;
+    padding: 8px 16px;
+    margin: 0 8px 8px 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    transition: ease 0.2s;
+    transition: transform 0.3s;
+}
+
+.button:hover {
+    background: rgba(48, 128, 208, .15);
+    border-color: rgba(48, 128, 208, .2);
+    color: #3080d0
+}
+
+.button:active {
+    background: rgba(48, 128, 208, .3);
+    border-color: rgba(48, 128, 208, .4);
+    color: #3080d0
+}
+
+.orange{
+    color: #e77e4d;
+
+}
+
+.orange:hover{
+    background: rgba(231, 125, 75, 0.15);
+    border-color: rgba(231, 125, 75, 0.2);
+    color: #e77e4d
+}
+
+.orange:active {
+    background: rgba(231, 125, 75, 0.3);
+    border-color: rgba(231, 125, 75, .4);
+    color: #e77e4d
+}

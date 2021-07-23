@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ch">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sth/fuck.css">
+    <title>Document</title>
+</head>
+
+<body onload="init()">
+    <canvas id="myChart" width="600" height="300"></canvas>
+    <div class="optCtr">
+        <h1 id='title'># 随机数欢迎</h1>
+        <div id='opt1' class="opt">
+            <a class="button" onclick="changeType(1)">单科分布</a>
+            <a class="button" onclick="changeType(2)">模长分布</a>
+            <a class="button" onclick="changeType(3)">聚类距离</a>
+            <a class="button orange" onclick="changeType(4)">调教</a>
+        </div>
+        <div id='opt2-1' class="opt">
+            <hr />
+            <li>
+                <a class="button" onclick="changeSubject('语文')">语文</a>
+                <a class="button" onclick="changeSubject('数学')">数学</a>
+                <a class="button" onclick="changeSubject('英语')">英语</a>
+            </li>
+            <li>
+                <a class="button" onclick="changeSubject('物理')">物理</a>
+                <a class="button" onclick="changeSubject('化学')">化学</a>
+                <a class="button" onclick="changeSubject('生物')">生物</a>
+            </li>
+        </div>
+        <div id='opt2-2' class="opt">
+            <hr />
+            <li>
+                <a>显示总分而非模长</a>
+                <input type="checkbox" name='_useSum' onclick="displayMold()">
+            </li>
+        </div>
+        <div id='opt2-3' class="opt">
+            <hr />
+            <li id='optID'>目标向量：NULL
+            </li>
+            <input type="range" name="stuID" min=1 max=74 step=1 value="1" onchange="changeID()">
+            <li id='optID'>距离算法：
+                <select id="distTypeC" name='_distType' onchange="changeDistType()">
+                    <option value="eu">欧氏距离(Euclidean)</option>
+                    <option value="ma">曼哈顿距离(Manhattan)</option>
+                    <option value="ch">切比雪夫距离(Chebyshev)</option>
+                    <option value="co">余弦相似度(Cosin)</option>
+                    <option value="mi">闵可夫斯基距离(Minkowski)*</option>
+                    <option value="ha">半正矢距离(Half Versine)*</option>
+                    <option value="wx">高氏距离(Snowman)*</option>
+                </select>
+            </li>
+            <li>
+                <a>聚类区分度(次数)</a>
+                <input type="number" name='_diffIndex' min="0" onchange="changeSetting(this,'number')">
+            </li>
+            <hr />
+            <li id='maxSimi'>MAX = </li>
+        </div>
+        <div id='opt2-4' class="opt">
+            <hr />
+            <li>
+                <a>Text</a>
+                <a class="button" onclick="changeType(-1)">button</a>
+            </li>
+            <li>
+                <a>重置设置</a>
+                <a class="button orange" id='reset' onclick="reset()">重置</a>
+            </li>
+            <li>
+                <a>将距离映射为相似度</a>
+                <input type="checkbox" name='_useSimilarity' onclick="changeSetting(this,'bool')">
+            </li>
+            <li>
+                <a>相似度归一化</a>
+                <input type="checkbox" name='_useNormal' onclick="changeSetting(this,'bool')">
+            </li>
+            <li>
+                <a>图表生成动画</a>
+                <input type="checkbox" name='_useAnim' onclick="changeSetting(this,'bool')">
+            </li>
+            <li>
+                <a>图表生成动画周期(ms)</a>
+                <input type="number" name='_animInterval' min="0" onclick="changeSetting(this,'number')">
+            </li>
+            <li>
+                <a>图表缓冲动画</a>
+                <input type="checkbox" name='_useAnimMove' onclick="changeSetting(this,'bool')">
+            </li>
+
+        </div>
+
+        <br>
+    </div>
+</body>
+
+</html>
+
+<script src="DataBase/database.js"></script>
+<script src="sth/datautils.js"></script>
+
+<script src="sth/lib/chart.min.js"></script>
+<script src="sth/lib/chartjs-plugin-zoom.min.js"></script>
+
+<script src="sth/main.js"></script>
+<script src="sth/setting.js"></script>

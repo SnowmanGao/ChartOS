@@ -26,8 +26,9 @@ function changer_mod() {
 
     changeID = changeID.after(function () {
         let arr = document.getElementsByClassName('cgr_mod')
+        let stu = DATABASE[StuID - 1]
         for (let i = 0; i < 6; i++) {
-            arr[i].value = DATABASE[StuID - 1][subjectMap(i)]
+            arr[i].value = stu[subjectMap(i)]
         }
     })
 

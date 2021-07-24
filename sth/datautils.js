@@ -263,7 +263,8 @@ Function.prototype.after = function (fn) {
     var _this = this;
 
     return function () {
+        var result = _this.apply(this, arguments);
         fn.apply(this, arguments)
-        return _this.apply(_this, arguments);;
+        return result;
     }
 }

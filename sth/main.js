@@ -216,7 +216,7 @@ function displayMold() {
 function changeID() {
 
     //更新切换学生ID
-    StuID = document.getElementsByName('stuID')[0].value
+    StuID = parseInt(document.getElementsByName('stuID')[0].value)
     let name = DATABASE[StuID - 1]['姓名']
     let title = document.getElementById("title")
     let [a, maxID, max] = DATA.get('#' + StuID)
@@ -248,7 +248,7 @@ function changeID() {
 
 function changeDistType() {
     //切换距离算法
-    let stuID = document.getElementsByName('stuID')[0].value
+    let stuID = parseInt(document.getElementsByName('stuID')[0].value)
     let type = document.getElementById('distTypeC').value
 
     Setting.distType = type

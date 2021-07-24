@@ -1,3 +1,13 @@
+/* Function Info 
+ * Author:      SnowmanGao 
+ * CreateTime:  2021/7/24下午11:40:26 
+ * LastEditor:  SnowmanGao 
+ * ModifyTime:  2021/7/24下午11:40:26 
+ * Description: 
+*/ 
+
+//访问DATABASE时注意索引为 学号-1
+
 DATALENGTH = DATABASE.length
 
 class DATA {
@@ -145,8 +155,29 @@ function listSum(list) {
 function getVec6s() {
     //从数据库中生成6维向量数组
     return DATABASE.map(i => (
-        [i['语文'], i['数学'], i['英语'], i['物理'], i["化学"], i["生物"]]
+        [i[subjectMap(0)], i[subjectMap(1)], i[subjectMap(2)],
+            i[subjectMap(3)], i[subjectMap(4)], i[subjectMap(5)]
+        ]
     ))
+}
+
+
+function subjectMap(id) {
+    //由[0,5]的整数映射到科目名称
+    switch (id) {
+        case 0:
+            return '语文'
+        case 1:
+            return '数学'
+        case 2:
+            return '英语'
+        case 3:
+            return '物理'
+        case 4:
+            return '化学'
+        case 5:
+            return '生物'
+    }
 }
 
 
@@ -209,4 +240,30 @@ function vec6dist(v1, v2) {
             return 0;
     }
 
+}
+
+
+//处理mod和注入
+
+Function.prototype.before = function (fn) {
+
+    var _this = this; //保存原函数引用
+
+    //返回包含了原函数和新函数的代理函数
+    return function () {
+        fn.apply(this, arguments);
+        //执行新函数,且保证this不被劫持,新函数接受的参数
+        return _this.apply(_this, arguments); 
+        //也会被原封不动的传入旧函数,新函数在旧函数之前执行
+    }
+
+}
+
+Function.prototype.after = function (fn) {
+    var _this = this;
+
+    return function () {
+        fn.apply(this, arguments)
+        return _this.apply(_this, arguments);;
+    }
 }

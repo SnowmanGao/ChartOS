@@ -1,3 +1,12 @@
+/* Function Info 
+ * Author:      SnowmanGao 
+ * CreateTime:  2021/7/24下午11:41:10 
+ * LastEditor:  SnowmanGao 
+ * ModifyTime:  2021/7/24下午11:41:10 
+ * Description: 
+*/ 
+
+
 var useIDrank = true
 
 var subject = ['语文', '数学', '英语', '物理', '化学', '生物']

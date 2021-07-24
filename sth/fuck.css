@@ -6,13 +6,13 @@ body{
 @font-face {
     font-family: digital;
     font-weight: 200;
-    src: url('../pic/digital-7-mono.ttf');
+    src: url('../resource/digital-7-mono.ttf');
 }
 
 @font-face {
     font-family: poppi;
     font-weight: 200;
-    src: url('../pic/poppi.ttf');
+    src: url('../resource/poppi.ttf');
 }
 
 canvas {
@@ -79,7 +79,7 @@ hr {
 
 .optCtr {
     filter: opacity(0);
-    background-image: url(../pic/background.png);
+    background-image: url(../resource/background.png);
     min-height: 50em;
     transition: 1s;
 }
